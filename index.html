@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>🎸 MyGO!!!!! 좋아하는 조합 그래프 📈</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+  <script type="module" crossorigin src="/mygo-combination-graph/assets/index-D-n0Le7a.js"></script>
+  <link rel="stylesheet" crossorigin href="/mygo-combination-graph/assets/index-CfGL2Qi0.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>🎸 MyGO!!!!! 좋아하는 조합 그래프 📈</h1>
+
+        <div class="main-content">
+            <!-- 티어 메이커 섹션 -->
+            <div class="tier-section">
+                <h3 style="color: #1e88e5; margin-bottom: 15px;">📝 아직 선택되지 않은 조합</h3>
+                <div style="display: flex; gap: 15px; margin-bottom: 20px; align-items: stretch;">
+                    <div class="combinations-pool" id="combinationsPool" style="flex: 5;">
+                        <p style="color: #666; text-align: center;">조합을 드래그해서 티어를 만들어보세요!</p>
+                    </div>
+
+                    <!-- 순서 바꾸기 영역 -->
+                    <div style="background: #fff3cd; border: 2px dashed #856404; border-radius: 10px; padding: 15px; text-align: center; display: flex; flex-direction: column; justify-content: center; flex: 1; word-break: keep-all;"
+                        id="swapArea">
+                        <p style="color: #856404; font-weight: bold; margin: 0; word-break: keep-all;">💫 순서 바꾸기</p>
+                        <p style="color: #856404; font-size: 12px; margin: 5px 0 0 0; word-break: keep-all;">여기에 드래그하면
+                            조합의 순서가 바뀝니다</p>
+                    </div>
+                </div>
+
+                <div class="tier-row">
+                    <div class="tier-label tier-s">최애 커플</div>
+                    <div class="tier-content" data-tier="S">
+                        <p style="color: #999; text-align: center; margin: 0; font-size: 14px;">여기에 드래그</p>
+                    </div>
+                </div>
+                <div class="tier-row">
+                    <div class="tier-label tier-a">좋아하는 커플</div>
+                    <div class="tier-content" data-tier="A">
+                        <p style="color: #999; text-align: center; margin: 0; font-size: 14px;">여기에 드래그</p>
+                    </div>
+                </div>
+                <div class="tier-row">
+                    <div class="tier-label tier-b">좋아하는 조합</div>
+                    <div class="tier-content" data-tier="B">
+                        <p style="color: #999; text-align: center; margin: 0; font-size: 14px;">여기에 드래그</p>
+                    </div>
+                </div>
+                <div class="tier-row">
+                    <div class="tier-label tier-c">못 보는 커플</div>
+                    <div class="tier-content" data-tier="C">
+                        <p style="color: #999; text-align: center; margin: 0; font-size: 14px;">여기에 드래그</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 그래프 섹션 -->
+            <div class="graph-section">
+                <div class="graph-controls">
+                    <div class="tier-chips">
+                        <div class="tier-chip active" data-tier="S">최애 커플</div>
+                        <div class="tier-chip active" data-tier="A">좋아하는 커플</div>
+                        <div class="tier-chip active" data-tier="B">좋아하는 조합</div>
+                        <div class="tier-chip active" data-tier="C">못 보는 커플</div>
+                    </div>
+                </div>
+                <div id="graph-container"></div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
