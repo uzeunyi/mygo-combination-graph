@@ -1,15 +1,10 @@
 // 드래그 앤 드롭 설정
-export function setupDragAndDrop(tierData, combinations, updateTierDisplay, updateCombinationsPool, updateGraphElements, showTouchModal) {
+export function setupDragAndDrop(tierData, combinations, updateTierDisplay, updateCombinationsPool, updateGraphElements) {
     const cards = document.querySelectorAll('.combination-card');
     const tierContents = document.querySelectorAll('.tier-content');
     const swapArea = document.getElementById('swapArea');
 
     cards.forEach(card => {
-        // 터치 이벤트 추가
-        card.addEventListener('touchstart', e => {
-            e.preventDefault();
-            showTouchModal(card.dataset.combo);
-        });
 
         card.addEventListener('dragstart', e => {
             e.dataTransfer.setData('text/plain', card.dataset.combo);

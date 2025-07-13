@@ -2,7 +2,6 @@ import { generateCombinations, updateCombinationsPool } from './modules/combinat
 import { updateTierDisplay, moveCombToTier } from './modules/tiers.js';
 import { setupDragAndDrop } from './modules/dragAndDrop.js';
 import { updateGraph, updateGraphElements } from './modules/graph.js';
-import { setupTouchModal, showTouchModal } from './modules/touchModal.js';
 
 let members = [];
 let combinations = [];
@@ -37,25 +36,23 @@ function initializeCombinations() {
         () => updateTierDisplay(tierData, combinations, () => setupDragAndDrop(
             tierData, 
             combinations, 
-            () => updateTierDisplay(tierData, combinations, () => setupDragAndDrop(tierData, combinations, updateTierDisplayWrapper, updateCombinationsPoolWrapper, updateGraphElementsWrapper, showTouchModal)),
+            () => updateTierDisplay(tierData, combinations, () => setupDragAndDrop(tierData, combinations, updateTierDisplayWrapper, updateCombinationsPoolWrapper, updateGraphElementsWrapper)),
             updateCombinationsPoolWrapper,
-            updateGraphElementsWrapper,
-            showTouchModal
+            updateGraphElementsWrapper
         )),
         updateCombinationsPoolWrapper,
-        updateGraphElementsWrapper,
-        showTouchModal
+        updateGraphElementsWrapper
     ));
     updateGraph(members, tierData);
 }
 
 // 래퍼 함수들
 function updateTierDisplayWrapper() {
-    updateTierDisplay(tierData, combinations, () => setupDragAndDrop(tierData, combinations, updateTierDisplayWrapper, updateCombinationsPoolWrapper, updateGraphElementsWrapper, showTouchModal));
+    updateTierDisplay(tierData, combinations, () => setupDragAndDrop(tierData, combinations, updateTierDisplayWrapper, updateCombinationsPoolWrapper, updateGraphElementsWrapper));
 }
 
 function updateCombinationsPoolWrapper() {
-    updateCombinationsPool(combinations, () => setupDragAndDrop(tierData, combinations, updateTierDisplayWrapper, updateCombinationsPoolWrapper, updateGraphElementsWrapper, showTouchModal));
+    updateCombinationsPool(combinations, () => setupDragAndDrop(tierData, combinations, updateTierDisplayWrapper, updateCombinationsPoolWrapper, updateGraphElementsWrapper));
 }
 
 function updateGraphElementsWrapper() {
@@ -91,5 +88,4 @@ document.addEventListener('DOMContentLoaded', () => {
     // 초기 멤버 설정 (MyGO!!!!! 멤버들)
     members = ['토모리', '타키', '소요', '아논', '라나'];
     initializeCombinations();
-    setupTouchModal(moveCombToTierWrapper);
 });
