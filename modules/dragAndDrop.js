@@ -82,7 +82,6 @@ export function setupDragAndDrop(tierData, combinations, updateTierDisplay, upda
         }
         
         updateTierDisplay();
-        updateCombinationsPool();
         updateGraphElements();
     });
 
