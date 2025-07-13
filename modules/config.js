@@ -25,7 +25,7 @@ export const tierColors = {
 
 export function getMemberImage(memberName) {
     const filename = memberToFilename[memberName] || memberName.toLowerCase();
-    return `./asset/${filename}_face.webp`;
+    return `assets/${filename}_face.webp`;
 }
 
 export function getMemberColor(memberName) {
